@@ -12,6 +12,7 @@ body {
 }
 
 .trademark {
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     left: 10px;
