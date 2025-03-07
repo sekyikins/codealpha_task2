@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    .calculator {
+        margin-top: 45px;
+    }
+
+    .trademark {
+        left: 50%;
+        top: 10px;
+        transform: translateX(-50%);
+    }
+}

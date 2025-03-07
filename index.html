@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="queries.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="trademark">
+        <p>&copy; 2025_Calculator by Mr. Sekyi. All_rights_reserved.</p>
+    </div>
+    <div class="calculator">
+        <div class="display">
+            <input class="show-text1" type="text" id="result" readonly>
+            <input class="show-text2" type="text" id="display">
+        </div>
+        <div class="input-container">
+            <div class="input">
+                <button onclick="clearDisplay()">C</button>
+                <button onclick="deleteChar()">Del</button>
+                <button onclick="useAns()">Ans</button>
+                <button onclick="appendChar('/')">/</button>
+            </div>
+            <div class="input">
+                <button onclick="appendChar('7')">7</button>
+                <button onclick="appendChar('8')">8</button>
+                <button onclick="appendChar('9')">9</button>
+                <button onclick="appendChar('*')">*</button>
+            </div>
+            <div class="input">
+                <button onclick="appendChar('4')">4</button>
+                <button onclick="appendChar('5')">5</button>
+                <button onclick="appendChar('6')">6</button>
+                <button onclick="appendChar('-')">-</button>
+            </div>
+            <div class="input">
+                <button onclick="appendChar('1')">1</button>
+                <button onclick="appendChar('2')">2</button>
+                <button onclick="appendChar('3')">3</button>
+                <button onclick="appendChar('+')">+</button>
+            </div>
+            <div class="input">
+                <button onclick="appendChar('00')">00</button>
+                <button onclick="appendChar('0')">0</button>
+                <button onclick="appendChar('.')">.</button>
+                <button onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
