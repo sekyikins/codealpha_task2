@@ -1,9 +1,43 @@
 let isResultDisplayed = false;
 
 function clearDisplay() {
-    document.getElementById("display").value = '';
-    document.getElementById("result").value = '';
-    isResultDisplayed = false;
+    document.getElementById("display");
+    document.getElementById("result");
+
+    // Function to clear one character at a time from the display
+    function clearDisplayCharacters() {
+        return new Promise((resolve) => {
+            function clearOneCharacter() {
+                if (display.value.length > 0) {
+                    display.value = display.value.slice(0, -1);
+                    setTimeout(clearOneCharacter, 50); // Adjust the timeout for the desired speed
+                } else {
+                    resolve();
+                }
+            }
+            clearOneCharacter();
+        });
+    }
+
+    // Function to clear one character at a time from the result
+    function clearResultCharacters() {
+        return new Promise((resolve) => {
+            function clearOneCharacter() {
+                if (result.value.length > 0) {
+                    result.value = result.value.slice(0, -1);
+                    setTimeout(clearOneCharacter, 50); // Adjust the timeout for the desired speed
+                } else {
+                    resolve();
+                }
+            }
+            clearOneCharacter();
+        });
+    }
+
+    // Clear both fields simultaneously
+    Promise.all([clearDisplayCharacters(), clearResultCharacters()]).then(() => {
+        isResultDisplayed = false;
+    });
 }
 
 function deleteChar() {

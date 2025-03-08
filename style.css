@@ -63,6 +63,7 @@ body {
     outline: none;
     text-align: right;
     pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .show-text1 {
