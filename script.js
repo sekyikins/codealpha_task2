@@ -22,6 +22,7 @@ function deleteChar() {
             display.setSelectionRange(start, start);
         }
     }
+    display.scrollLeft = display.scrollWidth;
 }
 
 function appendChar(char) {
@@ -57,6 +58,7 @@ function appendChar(char) {
             display.setSelectionRange(start + 1, start + 1);
         }
     }
+    display.scrollLeft = display.scrollWidth;
 }
 
 function useAns() {
