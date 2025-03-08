@@ -5,7 +5,11 @@
 
     .trademark {
         left: 50%;
-        top: 10px;
+        top: 5px;
         transform: translateX(-50%);
+    }
+
+    .trademark p {
+        font-size: 8px;
     }
 }
