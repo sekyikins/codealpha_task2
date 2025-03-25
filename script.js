@@ -1,10 +1,11 @@
 let isResultDisplayed = false;
 
+// The clear button
 function clearDisplay() {
-    document.getElementById("display");
-    document.getElementById("result");
+    let display = document.getElementById("display");
+    let result = document.getElementById("result");
 
-    // Function to clear one character at a time from the display
+    // Clearing one character at a time from the display
     function clearDisplayCharacters() {
         return new Promise((resolve) => {
             function clearOneCharacter() {
@@ -19,7 +20,7 @@ function clearDisplay() {
         });
     }
 
-    // Function to clear one character at a time from the result
+    // Clearing one character at a time from the result
     function clearResultCharacters() {
         return new Promise((resolve) => {
             function clearOneCharacter() {
@@ -40,6 +41,7 @@ function clearDisplay() {
     });
 }
 
+//The delete button
 function deleteChar() {
     let display = document.getElementById("display");
     let start = display.selectionStart;
@@ -59,6 +61,7 @@ function deleteChar() {
     display.scrollLeft = display.scrollWidth;
 }
 
+// The append button
 function appendChar(char) {
     let display = document.getElementById("display");
     let start = display.selectionStart;
@@ -74,8 +77,15 @@ function appendChar(char) {
             return; //Do nothing if initial char is * or /
         }
 
+        // Disregarding 0 at the beginning of a number
+        if (display.value === '0' && !isNaN(char)) {
+            display.value = char;
+            display.setSelectionRange(1, 1);
+            return;
+        }
+
         if (['+', '-', '*', '/'].includes(lastChar) && ['+', '-', '*', '/'].includes(char)) {
-            display.value = display.value.slice(0, -1) + char; //Replace precious symbol with new one
+            display.value = display.value.slice(0, -1) + char; //Replace previous symbol with new one
             display.setSelectionRange(start, start);
         } else {
             let segments = display.value.split(/[\+\-\*\/]/);
@@ -126,7 +136,7 @@ document.addEventListener('keydown', function(event) {
         calculate();
     } else if (key === 'Backspace') {
         deleteChar();
-    } else if (key === 'Escape') {
+    } else if (key === 'Delete') {
         clearDisplay();
     } else if (['+', '-', '*', '/'].includes(key)) {
         appendChar(key);
